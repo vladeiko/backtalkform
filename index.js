@@ -5,7 +5,7 @@ const mailer = require('./nodemailer');
 
 const app = express();
 
-const PORT = 3001;
+const PORT = 80;
 let feedbackInfo = undefined;       // Для временного хранения данных формы
 
 // строка как я понял подключает сам bodyparser
