@@ -15,7 +15,8 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.post('/feedbackForm', (req, res) => {
     // Проверка на отправку всех полей... 
     // У тегов input в форме должны быть атрибут name они обязательно должны совпадать с именами после req.body в if и в message
-    if (!req.body.name || !req.body.email || !req.body.info) return res.sendStatus(400);
+    if (!req.body.name || !req.body.email || !req.body.info) 
+		return res.sendStatus(400);
     // в message внешний вид самого собщения которое отправится на почту(можно подредачить внешний вид если надо будет)
     const message = {
         subject: 'feedback',    // поле темы сообщения
@@ -36,7 +37,9 @@ app.post('/feedbackForm', (req, res) => {
 
 app.get('/feedbackForm', (req, res) => {
     // При обновлении страницы после отправи, данные не будут отправляться повторно, а пользователь перейдет на страницу /feedbackForm
-    if(typeof feedbackInfo !== 'object') return res.sendFile(__dirname + '/feedbackForm.html');
+    if(typeof feedbackInfo !== 'object') 
+		return res.sendFile(__dirname + '/feedbackForm.html');
+	
     res.send('Письмо отправлено!');
     feedbackInfo = undefined;
 });
